@@ -1,3 +1,5 @@
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+
 module.exports = {
     entry: "./src/index.tsx",
     output: {
@@ -33,4 +35,11 @@ module.exports = {
         "react": "React",
         "react-dom": "ReactDOM"
     },
+    plugins: [
+        new CopyWebpackPlugin([
+            { from: "node_modules/react/dist/react.js" },
+            { from: "node_modules/react-dom/dist/react-dom.js" },
+            { from: "src/index.html" }
+        ])
+    ],
 };
