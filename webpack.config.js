@@ -18,7 +18,14 @@ module.exports = {
     module: {
         loaders: [
             // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
-            { test: /\.tsx?$/, loader: "awesome-typescript-loader" }
+            {
+                test: /\.tsx?$/,
+                loader: "awesome-typescript-loader"
+            },
+            {
+                test: /\.(eot|svg|ttf|woff|woff2|png)\w*/,
+                loader: "file"
+            }
         ],
 
         preLoaders: [
@@ -37,7 +44,7 @@ module.exports = {
     },
     plugins: [
         new CopyWebpackPlugin([
-            { from: "node_modules/react/dist/react.js" },
+            { from: "node_modules/react/dist/react-with-addons.js" },
             { from: "node_modules/react-dom/dist/react-dom.js" },
             { from: "src/index.html" }
         ])
